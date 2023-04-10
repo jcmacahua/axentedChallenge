@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <div class="row text-light">
+        <h1 class="display-5">Detalles</h1>
+        <hr>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <img [src]="blog.picture_url" [alt]="blog.name" class="img-fluid w-50"><br>
+            <a [routerLink]="['/blogs']" class="btn btn-outline-warning btn-block w-50 mt-3">Regresar</a>
+        </div>
+
+        <div class="col-md-8 text-light">
+            <h1 class="display-6">Nombre</h1>
+            <p>{{blog.name}}</p>
+            <hr>
+            <h1 class="display-6">Sitio web</h1>
+            <p>{{blog.website}}</p>
+            <hr>
+            <h1 class="display-6">Amigos de {{blog.name}}</h1>
+            <p>
+                <span *ngFor="let friend of friends" class="badge rounded-pill text-bg-warning">{{friend.name}}</span>
+                <span *ngIf="friends.length===0" class="badge rounded-pill text-bg-warning">Ninguno</span>
+            </p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,6 @@
+.black-image {
+    background: url(src/assets/img/keyboard.jpg) no-repeat center;
+    background-size: cover;
+    height: 600px;
+    position: relative;
+}

@@ -1,0 +1,77 @@
+<div class="container-fluid">
+    <div class="row text-light">
+        <h1 class="display-5">Mis Blogs</h1>
+        <hr>
+    </div>
+    <div class="row">
+        <div class="col">
+            <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#addBlog">Agregar Blog</button>
+        </div>
+    </div>
+    <div class="row row-cols-2 row-cols-md-5 g-4 mt-1">
+        <!-- <app-blog-card [blog]="blog" [index]="i" *ngFor="let blog of blogs; let i = index"></app-blog-card> -->
+        <app-blog-card [blog]="blog" *ngFor="let blog of blogs"></app-blog-card>
+    </div>
+</div>
+
+
+<div class="modal fade " id="addBlog" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Blog</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class=" mb-3">
+                                <label for="name" class="form-label">Nombre del Blogger</label>
+                                <input type="text" class="form-control form-control-sm" id="name" placeholder="Ejemplo: Jose Ramirez" #bloggerName>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label for="website" class="form-label">Website</label>
+                                <input type="text" class="form-control form-control-sm" id="website" placeholder="Ejemplo: blogger.io" #webSite>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class=" mb-3">
+                                <label for="imageBlog" class="form-label">Imagen del blog</label>
+                                <!-- <input class="form-control form-control-sm" type="file" id="imageBlog" #bloggerImage> -->
+                                <input type="url" class="form-control form-control-sm" id="imageBlog" placeholder="https://url de la imagen" #bloggerImage>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label for="email" class="form-label">E-mail</label>
+                                <input type="email" class="form-control form-control-sm" id="email" placeholder="Ejemplo: name@example.com" #bloggerEmail>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <p class="text-warning">Manten precionado la tecla &lt;control&gt; para seleccionar multiples amigo</p>
+                        </div>
+                        <div class="col-6">
+                            <label for="friends">Seleccionar Amigos</label>
+                            <select class="form-select" id="friends" [(ngModel)]="seleccionados" [ngModelOptions]="{standalone: true}" multiple size="5" aria-label="Default select example">
+                                <option *ngFor="let blog of blogs" [value]="blog.id" >{{blog.name}}</option>                                
+                              </select>
+
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal" (click)="saveBlogger(bloggerName.value,webSite.value,bloggerImage.value,bloggerEmail.value)">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>

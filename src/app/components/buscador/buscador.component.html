@@ -1,0 +1,17 @@
+<div class="container-fluid">
+    <div class="row text-light">
+        <h1 class="display-5">Resultados de busqueda </h1>
+        <hr>
+    </div>
+
+    <div class="row" *ngIf="blogs.length===0">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            No se encontraron blogs relacionados a: <strong>{{busqueda}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+
+    <div class="row row-cols-2 row-cols-md-5 g-4">
+        <app-blog-card [blog]="blog" [index]="i" *ngFor="let blog of blogs; let i = index"></app-blog-card>
+    </div>
+</div>

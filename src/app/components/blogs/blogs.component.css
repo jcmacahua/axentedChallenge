@@ -1,0 +1,17 @@
+.modal-content {
+    background-color: black;
+    color: white;
+    border-color: orange;
+}
+
+.modal-header {
+    border-color: orange;
+}
+
+.modal-footer {
+    border-color: orange;
+}
+
+hr {
+    border-top: 2px solid orange;
+}

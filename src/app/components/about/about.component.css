@@ -1,0 +1,27 @@
+.accordion-button {
+    background-color: black;
+    color: orange;
+}
+
+.accordion-item {
+    border-color: orange;
+}
+
+.accordion-button {
+    color: orange;
+}
+
+.accordion-body {
+    background-color: black;
+    color: white;
+}
+
+.list-group-item {
+    background-color: black;
+    color: white;
+    border-color: orange;
+}
+
+ul {
+    list-style-image: url('src/assets/img/list.png');
+}
